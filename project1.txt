@@ -1,0 +1,32 @@
+1) python 설치(다운로드: https://www.python.org )
+2) pip install selenium
+   pip install beautifulsoup4
+3) 사용중인 chrome version 확인 후 알맞은 "chrome webdriver 다운로드( http://chromedriver.chromium.org/downloads )
+   chrome version과 같은 webdriver를 다운받아 압축을 풀고 동일 폴더에 DLL 파일을 위치시킴
+4) 테스트 코드 : 파일명( website-chapture.py )
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.action_chains import ActionChains
+import time
+
+options = webdriver.ChromeOptions()
+options.add_argument('headless')
+options.add_argument('window-size=1920x1080')
+options.argument('disable-gpu')
+
+driver = webdriver.Chrome('chromedriver',chrome_options=options)
+
+url = "https://www.naver.com"
+driver.get(url)
+
+driver.implicitly_wait(3)
+driver.get_screenshot_as_file('naver_main_headless.png')
+driver.close()
+
+5) python website-chapture.py 
+5번을 실행한 후 디렉토리내에 "naver_main_headless.png" 파일 확인
+
+
+
+
+   
